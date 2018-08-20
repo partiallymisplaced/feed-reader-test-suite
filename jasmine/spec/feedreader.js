@@ -34,7 +34,6 @@ $(function() {
            for(var i = 0; i < allFeeds.length; i++) {
              expect(allFeeds[i].url).toBeDefined();
              expect(allFeeds[i].url).not.toBe('');
-             expect(allFeeds[i].url).not.toBeNull();
            }
          });
 
@@ -48,7 +47,6 @@ $(function() {
            for(var i = 0; i < allFeeds.length; i++) {
              expect(allFeeds[i].name).toBeDefined();
              expect(allFeeds[i].name).not.toBe('');
-             expect(allFeeds[i].name).not.toBeNull();
            }
          });
     });
