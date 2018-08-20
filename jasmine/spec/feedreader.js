@@ -60,6 +60,8 @@ $(function() {
       */
 
       it('is hidden by default', function() {
+        var theReader = document.querySelector('body');
+        expect(theReader.classList).toContain('menu-hidden');
 
       });
 
