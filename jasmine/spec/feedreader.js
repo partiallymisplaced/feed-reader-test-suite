@@ -115,8 +115,29 @@ $(function() {
       * Remember, loadFeed() is asynchronous.
       */
 
-      it('changes when a new feed is loaded', function() {
+      var liveFeed = document.querySelector('.feed');
 
+      var feedOne;
+      var feedTwo;
+
+      // Loads the first feed
+      beforeEach(function(done) {
+        loadFeed(0, function() {
+          feedOne = liveFeed.innerHTML;
+          done();
+        });
+      });
+
+      beforeEach(function(done) {
+        loadFeed(1, function() {
+          feedTwo = liveFeed.innerHTML;
+          done();
+        });
+      });
+
+      it('changes when a new feed is loaded', function(done) {
+        expect(feedOne).not.toBe(feedTwo);
+        done();
       });
 
     });
