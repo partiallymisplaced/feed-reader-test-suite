@@ -59,7 +59,7 @@ $(function() {
   // "Initial Entries" test suite
   describe('Initial Entries', function() {
 
-    // Setup: Calls the load loadFeed function with the first resource in the feed
+    // Setup: Calls the loadFeed function with the first resource in the feed
     beforeEach(function(done) {
       loadFeed(0, function() {
         done();
@@ -91,17 +91,28 @@ $(function() {
     beforeEach(function(done) {
       loadFeed(0, function() {
         feedOne = liveFeed.innerHTML;
-        done();
+        loadFeed(1, function() {
+          feedTwo = liveFeed.innerHTML;
+          done();
+        });
       });
     });
 
-    // Loads the second feed
-    beforeEach(function(done) {
-      loadFeed(1, function() {
-        feedTwo = liveFeed.innerHTML;
-        done();
-      });
-    });
+    // // Loads the first feed
+    // beforeEach(function(done) {
+    //   loadFeed(0, function() {
+    //     feedOne = liveFeed.innerHTML;
+    //     done();
+    //   });
+    // });
+    //
+    // // Loads the second feed
+    // beforeEach(function(done) {
+    //   loadFeed(1, function() {
+    //     feedTwo = liveFeed.innerHTML;
+    //     done();
+    //   });
+    // });
 
     // Checks that the content changes after a new feed is loaded via the loadFeed() async function
     it('changes when a new feed is loaded', function(done) {
